@@ -20,10 +20,15 @@ int main() {
     Roster roster;
     for (i = 0; i < SIZE; i++) {
         roster.classRosterArray[i] = &studentData[i];
+            // grab one of the string of input
+            // parse it into it's tokens based comma delimitor
+            // call add(params)
     }
 
     cout << *classRosterArray[4];
 }
+
+
 
 
 Roster::Roster(){
