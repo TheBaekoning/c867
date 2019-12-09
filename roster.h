@@ -16,7 +16,7 @@ public:
 
 
 private:
-    Student* classRosterArray[100];
+    Student* classRosterArray[5];
 
 
 };
