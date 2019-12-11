@@ -4,26 +4,31 @@
 #include "student.h"
 
 using namespace std;
+Student::Student(){
+    studentId = "";
+    firstName = "";
+    lastName = "";
+    emailAddress = "";
+}
 
 Student::Student(string studentID, string firstName, string lastName, string emailAddress
 , int age, int daysInCourse1, int daysInCourse2,
-int daysInCourse3, Degree degreeType) {
-    SetStudentId(move(studentID));
-    SetFirstName(move(firstName));
-    SetLastName(move(lastName));
-    SetEmailAddress(move(emailAddress));
-    SetAge(age);
-    SetDaysLeft(daysInCourse1, 0);
-    SetDaysLeft(daysInCourse2, 1);
-    SetDaysLeft(daysInCourse3, 2);
-    SetDegree(degreeType);
+int daysInCourse3) {
+    studentId = studentID;
+    this->firstName = firstName;
+    this->lastName = lastName;
+    this->emailAddress = emailAddress;
+    this->age = age;
+    days[0] = daysInCourse1;
+    days[1] = daysInCourse2;
+    days[2] = daysInCourse3;
 }
 
 void Student::print() {
     cout << "Student ID: " + GetStudentId() << "\t" << "First Name: "
-    + GetFirstName() << "\t" << "Last Name: " + GetLastName() << "\t\t" << "Student Email: " + GetEmailAddress()
-    << "\t" << "Student Age: " << GetAge() << "\t\t" << "Days in Course: { " << GetDaysLeft(0) << ", " <<
-    GetDaysLeft(1) << ", " << GetDaysLeft(2) << "} \t\t" << "Degree Program: " << GetDegreeProgram() << endl << endl;
+    + GetFirstName() << "\t" << "Last Name: " + GetLastName() << "\t" << "Student Email: " + GetEmailAddress()
+    << "\t" << "Student Age: " << GetAge() << "\t" << "Days in Course: { " << GetDaysLeft(0) << ", " <<
+    GetDaysLeft(1) << ", " << GetDaysLeft(2) << " } \t" << "Degree Program: ";
 }
 
 
@@ -53,7 +58,7 @@ void Student::SetDegree(enum Degree degreeType) {
 }
 
 void Student::SetDaysLeft(int days, int index) {
-    daysLeft[index] = days;
+    this->days[index] = days;
 }
 
 string Student::GetStudentId() {
@@ -76,31 +81,15 @@ int Student::GetAge() {
     return age;
 }
 
-string Student::GetDegreeProgram() {
-    /*string degreeString;
-    switch (degree) {
-        case SOFTWARE:
-            degreeString = "SOFTWARE";
-            break;
-        case NETWORKING:
-            degreeString = "NETWORKING";
-            break;
-        case SECURITY:
-            degreeString = "SECURITY";
-            break;
-    }
-    return degreeString;*/
+Degree Student::GetDegreeProgram() {
+
 }
 
 int Student::GetDaysLeft(int index) {
-    return daysLeft[index];
+    return days[index];
 }
 
 Student::~Student(){
-    studentId.clear();
-    firstName.clear();
-    lastName.clear();
-    emailAddress.clear();
 }
 
 

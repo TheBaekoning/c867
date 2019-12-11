@@ -11,13 +11,19 @@ using namespace std;
 
 class Roster{
 public:
-    Roster();
-
-
-
-private:
+    ~Roster();
+    void add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, Degree degree);
+    void remove(string studentID);
+    void printAll();
+    void printDaysInCourse(string studentID); // average days in course
+    void printInvalidEmails();
+    void printByDegreeProgram(Degree degreeProgram);
+    Degree convertDegree(string degree);
     Student* classRosterArray[5];
+    int GetLastIndex();
+private:
 
+    int lastIndex = 0;
 
 };
 

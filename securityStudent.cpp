@@ -3,32 +3,28 @@
 //
 #include "securityStudent.h"
 #include <string>
+#include <iostream>
 
-SecurityStudent::SecurityStudent(string studentID, string firstName, string lastName, string emailAddress, int age,
-                                 int daysInCourse1, int daysInCourse2,
-                                 int daysInCourse3, Degree degreeType) : Student(studentID, firstName, lastName,
-                                                                                 emailAddress,
-                                                                                 age, daysInCourse1, daysInCourse2,
-                                                                                 daysInCourse3,
-                                                                                 degreeType) {
+SecurityStudent::SecurityStudent() : Student(){
     degree = SECURITY;
 }
 
-string SecurityStudent::GetDegreeProgram() {
-    string degreeString;
-    switch (degree) {
-        case NONE:
-            degreeString = "NONE";
-            break;
-        case SOFTWARE:
-            degreeString = "SOFTWARE";
-            break;
-        case NETWORKING:
-            degreeString = "NETWORKING";
-            break;
-        case SECURITY:
-            degreeString = "SECURITY";
-            break;
-    }
-    return degreeString;
+SecurityStudent::SecurityStudent(string studentID, string firstName, string lastName, string emailAddress, int age,
+                                 int daysInCourse1, int daysInCourse2,
+                                 int daysInCourse3) : Student(studentID, firstName, lastName, emailAddress, age,
+                                                              daysInCourse1, daysInCourse2, daysInCourse3) {
+    degree = SECURITY;
+}
+
+Degree SecurityStudent::GetDegreeProgram() {
+    return SECURITY;
+}
+
+void SecurityStudent::print() {
+    this->Student::print();
+    cout << "Software" << endl;
+}
+
+SecurityStudent::~SecurityStudent(){
+ //   Student::~Student();
 }

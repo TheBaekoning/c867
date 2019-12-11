@@ -14,7 +14,7 @@ public:
     Student();
     Student(string studentID, string firstName, string lastName, string emailAddress
             , int age, int daysInCourse1, int daysInCourse2,
-            int daysInCourse3, Degree degreeType);
+            int daysInCourse3);
     ~Student();
 
     virtual void print();
@@ -32,8 +32,9 @@ public:
     string GetLastName();
     string GetEmailAddress();
     int GetAge();
-    virtual string GetDegreeProgram();
+    virtual Degree GetDegreeProgram();
     int GetDaysLeft(int index);
+    Degree degree;
 
 
 private:
@@ -42,9 +43,7 @@ private:
     string lastName;
     string emailAddress;
     int age = 0;
-    int daysLeft[3];
-protected:
-    Degree degree = NONE;
+    int days[3];
 };
 
 #endif //C867PA_STUDENT_H
